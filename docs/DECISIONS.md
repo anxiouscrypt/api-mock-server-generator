@@ -11,3 +11,11 @@ SQLite keeps endpoint definitions and request logs durable without adding an ext
 ## Exact Path Matching for MVP
 
 The first version matches method plus normalized path exactly. Dynamic path params are useful, but exact matching keeps the routing behavior clear and testable.
+
+## JSON-Only Responses
+
+The MVP returns JSON response bodies. This covers the most common frontend integration use case without adding content negotiation or binary response handling.
+
+## Request Logs Are Recent-First
+
+Logs are optimized for debugging current development work, so the API returns the most recent entries first.

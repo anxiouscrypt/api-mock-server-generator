@@ -4,6 +4,8 @@
 
 - Repository structure
 - Documentation baseline
+- Admin/runtime API design
+- Route matching design
 
 ## Planned
 

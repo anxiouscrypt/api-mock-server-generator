@@ -22,6 +22,19 @@ Screenshot placeholder: `docs/screenshots/api-mock-server-generator.png`
 
 React admin UI -> FastAPI admin API -> SQLite endpoint store -> runtime mock router -> request log.
 
+```txt
+React UI
+  -> endpoint builder
+  -> FastAPI admin API
+  -> SQLite endpoint store
+
+Client test request
+  -> /mock/{path}
+  -> method/path matcher
+  -> configured response
+  -> request log
+```
+
 ## Tech Stack
 
 - React, TypeScript, Vite
