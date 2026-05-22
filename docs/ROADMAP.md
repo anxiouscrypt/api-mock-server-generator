@@ -6,6 +6,8 @@
 - Documentation baseline
 - Admin/runtime API design
 - Route matching design
+- Backend endpoint CRUD
+- Runtime mock router
 
 ## Planned
 

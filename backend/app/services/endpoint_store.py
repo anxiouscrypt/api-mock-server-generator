@@ -73,6 +73,19 @@ def get_endpoint(endpoint_id_value: str) -> MockEndpoint | None:
     return _row_to_endpoint(row) if row else None
 
 
+def find_enabled_endpoint(method: str, path: str) -> MockEndpoint | None:
+    with get_connection() as connection:
+        row = connection.execute(
+            """
+            SELECT * FROM endpoints
+            WHERE method = ? AND path = ? AND enabled = 1
+            """,
+            (method.upper(), path),
+        ).fetchone()
+
+    return _row_to_endpoint(row) if row else None
+
+
 def update_endpoint(endpoint_id_value: str, data: MockEndpointInput) -> MockEndpoint | None:
     timestamp = _now()
 

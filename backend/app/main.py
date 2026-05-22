@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import init_db
 from app.routes.admin import router as admin_router
+from app.routes.mock import router as mock_router
 
 
 @asynccontextmanager
@@ -30,3 +31,4 @@ def health() -> dict[str, str]:
 
 
 app.include_router(admin_router)
+app.include_router(mock_router)
