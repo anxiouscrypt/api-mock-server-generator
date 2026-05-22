@@ -43,3 +43,15 @@ def init_db() -> None:
             ON endpoints(method, path)
             """
         )
+        connection.execute(
+            """
+            CREATE TABLE IF NOT EXISTS request_logs (
+              id TEXT PRIMARY KEY,
+              method TEXT NOT NULL,
+              path TEXT NOT NULL,
+              request_body TEXT,
+              matched_endpoint_id TEXT,
+              timestamp TEXT NOT NULL
+            )
+            """
+        )

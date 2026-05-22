@@ -20,3 +20,9 @@
 - Added `/mock/{path}` runtime handling.
 - Implemented exact method/path matching against enabled endpoints.
 - Returned configured JSON response body and status code.
+
+## Phase 5: Request Logging
+
+- Added SQLite request log storage.
+- Logged matched and unmatched runtime mock requests.
+- Exposed recent logs through `GET /admin/logs`.

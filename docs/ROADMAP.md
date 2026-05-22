@@ -8,6 +8,7 @@
 - Route matching design
 - Backend endpoint CRUD
 - Runtime mock router
+- Request logging
 
 ## Planned
 

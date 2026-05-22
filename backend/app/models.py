@@ -11,6 +11,10 @@ def endpoint_id() -> str:
     return f"endpoint_{uuid4().hex[:10]}"
 
 
+def log_id() -> str:
+    return f"log_{uuid4().hex[:10]}"
+
+
 class MockEndpointInput(BaseModel):
     name: str = Field(min_length=1, max_length=120)
     method: HttpMethod

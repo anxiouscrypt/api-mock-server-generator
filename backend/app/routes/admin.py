@@ -2,7 +2,7 @@ import sqlite3
 
 from fastapi import APIRouter, HTTPException
 
-from app.models import MockEndpoint, MockEndpointInput
+from app.models import MockEndpoint, MockEndpointInput, RequestLog
 from app.services.endpoint_store import (
     create_endpoint,
     delete_endpoint,
@@ -10,6 +10,7 @@ from app.services.endpoint_store import (
     list_endpoints,
     update_endpoint,
 )
+from app.services.request_logger import list_request_logs
 
 router = APIRouter(prefix="/admin", tags=["admin"])
 
@@ -62,3 +63,8 @@ def delete_mock_endpoint(endpoint_id: str) -> None:
 
     if not deleted:
         raise HTTPException(status_code=404, detail="Endpoint not found")
+
+
+@router.get("/logs", response_model=list[RequestLog])
+def read_request_logs() -> list[RequestLog]:
+    return list_request_logs()
