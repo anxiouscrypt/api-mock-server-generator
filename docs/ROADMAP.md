@@ -11,6 +11,7 @@
 - Request logging
 - Endpoint builder UI
 - Request tester and curl export
+- Logs viewer
 
 ## Planned
 

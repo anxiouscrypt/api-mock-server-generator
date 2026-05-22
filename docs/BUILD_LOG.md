@@ -39,3 +39,8 @@
 - Sent requests through the runtime `/mock` route.
 - Displayed response status and body.
 - Generated copyable curl commands.
+
+## Phase 8: Logs UI
+
+- Added a recent request log viewer.
+- Displayed method, path, timestamp, matched endpoint ID, and request body preview.

@@ -1,4 +1,4 @@
-import type { MockEndpoint, MockEndpointInput } from './types'
+import type { MockEndpoint, MockEndpointInput, RequestLog } from './types'
 
 export const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000'
@@ -44,4 +44,8 @@ export function updateEndpoint(endpointId: string, endpoint: MockEndpointInput) 
 
 export function deleteEndpoint(endpointId: string) {
   return request<void>(`/admin/endpoints/${endpointId}`, { method: 'DELETE' })
+}
+
+export function listLogs() {
+  return request<RequestLog[]>('/admin/logs')
 }

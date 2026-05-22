@@ -2,16 +2,25 @@ import { useEffect, useState } from 'react'
 import { EndpointForm } from './components/EndpointForm'
 import { EndpointList } from './components/EndpointList'
 import { RequestTester } from './components/RequestTester'
-import { listEndpoints, saveEndpoint, updateEndpoint, deleteEndpoint } from './lib/api'
-import type { MockEndpoint, MockEndpointInput } from './lib/types'
+import { RequestLogs } from './components/RequestLogs'
+import {
+  deleteEndpoint,
+  listEndpoints,
+  listLogs,
+  saveEndpoint,
+  updateEndpoint,
+} from './lib/api'
+import type { MockEndpoint, MockEndpointInput, RequestLog } from './lib/types'
 
 function App() {
   const [endpoints, setEndpoints] = useState<MockEndpoint[]>([])
+  const [logs, setLogs] = useState<RequestLog[]>([])
   const [editingEndpoint, setEditingEndpoint] = useState<MockEndpoint | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     void refreshEndpoints()
+    void refreshLogs()
   }, [])
 
   async function refreshEndpoints() {
@@ -20,6 +29,15 @@ function App() {
       setError(null)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Could not load endpoints')
+    }
+  }
+
+  async function refreshLogs() {
+    try {
+      setLogs(await listLogs())
+      setError(null)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Could not load logs')
     }
   }
 
@@ -73,8 +91,9 @@ function App() {
             />
             <RequestTester
               endpoints={endpoints}
-              onRequestComplete={refreshEndpoints}
+              onRequestComplete={refreshLogs}
             />
+            <RequestLogs logs={logs} />
           </div>
         </div>
       </div>
