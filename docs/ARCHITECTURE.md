@@ -21,6 +21,7 @@ Client request -> /mock route -> route matcher -> configured JSON response
 - Local developer tool only.
 - Exact path matching for MVP.
 - No auth, workspaces, or hosted environments.
+- JSON response bodies only.
 
 ## Admin API
 
@@ -54,3 +55,23 @@ If an enabled endpoint with that method and path exists, the runtime route retur
 ## Request Logging
 
 Each runtime request is logged with method, path, parsed request body when available, matched endpoint ID, and timestamp. Logs help developers confirm whether a frontend or integration request hit the expected mock.
+
+## Storage Model
+
+```txt
+endpoints
+  id TEXT PRIMARY KEY
+  method TEXT
+  path TEXT
+  status_code INTEGER
+  response_body TEXT
+  enabled INTEGER
+
+request_logs
+  id TEXT PRIMARY KEY
+  method TEXT
+  path TEXT
+  request_body TEXT
+  matched_endpoint_id TEXT
+  timestamp TEXT
+```

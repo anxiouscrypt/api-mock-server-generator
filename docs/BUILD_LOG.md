@@ -44,3 +44,9 @@
 
 - Added a recent request log viewer.
 - Displayed method, path, timestamp, matched endpoint ID, and request body preview.
+
+## Phase 9: Tests and Final Polish
+
+- Added Pytest coverage for endpoint CRUD, duplicate route handling, runtime matching, disabled endpoints, unmatched requests, and log creation.
+- Added local setup instructions, example usage, and a `scripts/dev.sh` runner.
+- Removed unused Vite starter files.

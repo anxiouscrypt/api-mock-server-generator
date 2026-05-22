@@ -12,16 +12,8 @@
 - Endpoint builder UI
 - Request tester and curl export
 - Logs viewer
-
-## Planned
-
-- Backend endpoint CRUD
-- Runtime mock router
-- Request logging
-- Endpoint builder UI
-- Request tester and curl export
-- Logs viewer
 - Backend tests
+- Local setup and dev runner
 
 ## Future Improvements
 
