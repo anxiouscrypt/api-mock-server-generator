@@ -9,6 +9,8 @@
 - Backend endpoint CRUD
 - Runtime mock router
 - Request logging
+- Endpoint builder UI
+- Request tester and curl export
 
 ## Planned
 

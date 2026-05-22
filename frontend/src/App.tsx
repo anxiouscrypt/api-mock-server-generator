@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { EndpointForm } from './components/EndpointForm'
 import { EndpointList } from './components/EndpointList'
+import { RequestTester } from './components/RequestTester'
 import { listEndpoints, saveEndpoint, updateEndpoint, deleteEndpoint } from './lib/api'
 import type { MockEndpoint, MockEndpointInput } from './lib/types'
 
@@ -64,11 +65,17 @@ function App() {
             onCancel={() => setEditingEndpoint(null)}
             onSubmit={handleSubmit}
           />
-          <EndpointList
-            endpoints={endpoints}
-            onDelete={handleDelete}
-            onEdit={setEditingEndpoint}
-          />
+          <div className="space-y-4">
+            <EndpointList
+              endpoints={endpoints}
+              onDelete={handleDelete}
+              onEdit={setEditingEndpoint}
+            />
+            <RequestTester
+              endpoints={endpoints}
+              onRequestComplete={refreshEndpoints}
+            />
+          </div>
         </div>
       </div>
     </main>

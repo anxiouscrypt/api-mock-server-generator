@@ -26,3 +26,16 @@
 - Added SQLite request log storage.
 - Logged matched and unmatched runtime mock requests.
 - Exposed recent logs through `GET /admin/logs`.
+
+## Phase 6: Frontend Endpoint Builder
+
+- Created the Vite React TypeScript frontend.
+- Added endpoint create, edit, delete, and list UI.
+- Added JSON response editing.
+
+## Phase 7: Request Tester
+
+- Added endpoint selection for test calls.
+- Sent requests through the runtime `/mock` route.
+- Displayed response status and body.
+- Generated copyable curl commands.
